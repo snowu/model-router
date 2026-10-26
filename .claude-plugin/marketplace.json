@@ -1,0 +1,15 @@
+{
+  "name": "model-router",
+  "description": "Route Claude Code work to the right model: cheap models for chores, Opus for thinking.",
+  "owner": {
+    "name": "Tommaso Zancato",
+    "url": "https://github.com/snowu"
+  },
+  "plugins": [
+    {
+      "name": "model-router",
+      "source": "./plugins/model-router",
+      "description": "Model-pinned subagents (PRs on Haiku, tickets on Sonnet, plans and code on Opus) plus a session hook that tells Claude to delegate to them."
+    }
+  ]
+}
