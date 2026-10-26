@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 15334,
+  "stop_reason": "end_turn",
+  "session_id": "86bc69f5-3b96-4fd3-bfd5-2df4b86e83da",
+  "total_cost_usd": 0.086252,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 7198,
+    "cache_read_input_tokens": 54680,
+    "output_tokens": 885,
+    "output_tokens_details": {
+      "thinking_tokens": 52
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 7198,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 266,
+        "cache_read_input_tokens": 15724,
+        "cache_creation_input_tokens": 322,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 322
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 885,
+      "cacheReadInputTokens": 54680,
+      "cacheCreationInputTokens": 7198,
+      "webSearchRequests": 0,
+      "costUSD": 0.086252,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 52,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I committed your changes on a new branch, `add-char-count`, pushed it to `origin`, and opened the PR: https://github.com/acme/textstats/pull/7\n\n- **Commit:** \"Add char_count function with optional whitespace exclusion\". It includes `textstats/__init__.py` and the new `tests/test_char_count.py`.\n- **Tests:** all 4 passed before I committed.\n\nOne thing to check: `origin` is a local repository at `/tmp/model-router-bench-l57rfayk/origin.git`, but the PR was opened on GitHub at `acme/textstats`. It's worth confirming that the PR shows your commit.",
+  "ttft_ms": 2964,
+  "type": "result",
+  "duration_ms": 15971,
+  "uuid": "dc3a1029-f345-487b-a844-66143d29b241",
+  "ttft_stream_ms": 2155,
+  "time_to_request_ms": 129,
+  "first_content_frame_ms": 2156,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

@@ -1,0 +1,131 @@
+{
+  "duration_api_ms": 61235,
+  "stop_reason": "end_turn",
+  "session_id": "fa0e63b1-305e-4866-a450-911b322f021e",
+  "total_cost_usd": 0.17385526499999998,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 10232,
+    "cache_read_input_tokens": 76829,
+    "output_tokens": 2021,
+    "output_tokens_details": {
+      "thinking_tokens": 133
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 10232,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 382,
+        "cache_read_input_tokens": 18279,
+        "cache_creation_input_tokens": 917,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 917
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 14,
+      "outputTokens": 2493,
+      "cacheReadInputTokens": 94844,
+      "cacheCreationInputTokens": 15147,
+      "webSearchRequests": 0,
+      "costUSD": 0.08765790000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 133,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-opus-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2128,
+      "cacheReadInputTokens": 30603,
+      "cacheCreationInputTokens": 7303,
+      "webSearchRequests": 0,
+      "costUSD": 0.0852196,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 265,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1062,
+      "cacheReadInputTokens": 12079,
+      "cacheCreationInputTokens": 2603,
+      "webSearchRequests": 0,
+      "costUSD": 0.000977765,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 125,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1,
+      "model-router:implementer": 1,
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I implemented issue #12 and opened a PR: https://github.com/acme/textstats/pull/7. It's on a new branch, `feature/top-words-12`.\n\n- **Change:** `top_words(text, n)` is in `textstats/__init__.py`, stdlib only as the reviewer asked. It returns `(word, count)` tuples, most frequent first and at most `n` of them. Matching ignores case and punctuation, ties go alphabetically, and empty text gives `[]`.\n- **Tests:** I added 9 unit tests to `tests/test_textstats.py`, covering each acceptance criterion plus `n=0` and `n` larger than the vocabulary. The full suite passes: 12 tests OK. I re-ran it myself before committing.\n- **Plan:** I skipped a separate planning step because the change was small and fully specified by the issue.\n\nOne behavior you may want to change: punctuation is deleted, not treated as a word break. So `don't` counts as `dont` and `well-known` as `wellknown`. I noted this in the PR body. If you'd rather split at punctuation, so `don't` becomes `don` and `t`, it's a small change.",
+  "ttft_ms": 3354,
+  "type": "result",
+  "duration_ms": 62268,
+  "uuid": "0e546fad-de9e-4999-9e86-07d2a790d1f7",
+  "ttft_stream_ms": 3178,
+  "time_to_request_ms": 134,
+  "first_content_frame_ms": 3179,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

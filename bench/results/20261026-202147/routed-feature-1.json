@@ -1,0 +1,131 @@
+{
+  "duration_api_ms": 66947,
+  "stop_reason": "end_turn",
+  "session_id": "256cd89e-06f8-4edc-92e8-6d603ea0b5c3",
+  "total_cost_usd": 0.221645705,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 11972,
+    "cache_read_input_tokens": 98111,
+    "output_tokens": 2482,
+    "output_tokens_details": {
+      "thinking_tokens": 197
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 11972,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 416,
+        "cache_read_input_tokens": 19931,
+        "cache_creation_input_tokens": 1005,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1005
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 16,
+      "outputTokens": 2903,
+      "cacheReadInputTokens": 108835,
+      "cacheCreationInputTokens": 24365,
+      "webSearchRequests": 0,
+      "costUSD": 0.11881599999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 197,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-opus-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 2346,
+      "cacheReadInputTokens": 60922,
+      "cacheCreationInputTokens": 8531,
+      "webSearchRequests": 0,
+      "costUSD": 0.1017994,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 220,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1117,
+      "cacheReadInputTokens": 12208,
+      "cacheCreationInputTokens": 2793,
+      "webSearchRequests": 0,
+      "costUSD": 0.001030305,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 67,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1,
+      "model-router:implementer": 1,
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I implemented issue #12 and opened PR #7: https://github.com/acme/textstats/pull/7. The full suite passes (12 tests, 9 of them new). I haven't looked at the PR page, so I'm relying on the agent's report that it exists.\n\n- **Code:** `top_words(text, n)` is in `textstats/__init__.py` and uses only the standard library, as the reviewer asked.\n  - **Behaviour:** it returns up to `n` `(word, count)` tuples, most frequent first. Words are lowercased and punctuation is ignored. Ties are broken alphabetically, and empty text returns `[]`.\n  - **Beyond the issue:** apostrophes inside a word are kept, so `don't` counts as one word. An `n` of 0 or less returns `[]`.\n- **Tests:** the 9 new cases are in `tests/test_textstats.py`. They cover each acceptance criterion plus the edge cases above. I re-ran the suite myself with `python3 -m unittest discover -s tests`.\n- **Git:** the work is on branch `feature/issue-12-top-words` as one commit. The PR body includes \"Closes #12\".\n\nI wrote the plan myself instead of using the planner agent, since the change is one function plus tests.",
+  "ttft_ms": 2745,
+  "type": "result",
+  "duration_ms": 68261,
+  "uuid": "309f9f0b-4afc-4d77-9ad6-a04060dfcf33",
+  "ttft_stream_ms": 2211,
+  "time_to_request_ms": 142,
+  "first_content_frame_ms": 2211,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

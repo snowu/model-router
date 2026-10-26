@@ -1,0 +1,136 @@
+{
+  "duration_api_ms": 53537,
+  "stop_reason": "end_turn",
+  "session_id": "dbe957a8-e59e-4c3a-8e0e-d9b9a35b17c3",
+  "total_cost_usd": 0.23905225,
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 1079,
+    "cache_read_input_tokens": 21561,
+    "output_tokens": 104,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 1079,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 104,
+        "cache_read_input_tokens": 21561,
+        "cache_creation_input_tokens": 1079,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1079
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 20,
+      "outputTokens": 2721,
+      "cacheReadInputTokens": 145957,
+      "cacheCreationInputTokens": 24903,
+      "webSearchRequests": 0,
+      "costUSD": 0.12461720000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 125,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-opus-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1814,
+      "cacheReadInputTokens": 23587,
+      "cacheCreationInputTokens": 14314,
+      "webSearchRequests": 0,
+      "costUSD": 0.11259140000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 62,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1513,
+      "cacheReadInputTokens": 15510,
+      "cacheCreationInputTokens": 7450,
+      "webSearchRequests": 0,
+      "costUSD": 0.0018436499999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 269,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mvpn8ja2-2e203d85"
+  },
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 1,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1,
+      "model-router:implementer": 1,
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The PR is open: https://github.com/acme/textstats/pull/7\n\nIt pushes `feature/top-words-12` (commit `34a9305`) against `main`. The description includes \"Closes #12\", so the issue will close when it merges. I didn't re-run the tests after the push; the 10-test pass above is from before it.",
+  "ttft_ms": 2245,
+  "type": "result",
+  "duration_ms": 2256,
+  "uuid": "486be019-12f1-4089-8de0-5a9718317e62",
+  "ttft_stream_ms": 1433,
+  "time_to_request_ms": 29,
+  "first_content_frame_ms": 1433,
+  "queued_turn_count": 0,
+  "result_index": 2
+}

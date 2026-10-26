@@ -1,7 +1,7 @@
 {
   "name": "model-router",
-  "version": "0.1.0",
-  "description": "Model-pinned subagents (PRs on Haiku, tickets on Sonnet, plans and code on Opus) plus a session hook that tells Claude to delegate to them.",
+  "version": "0.2.0",
+  "description": "Model-pinned subagents (PRs on Haiku, tickets on Sonnet, plans and code on Opus) with a session hook that delegates to them when the benchmark says it pays.",
   "author": {
     "name": "Tommaso Zancato",
     "url": "https://github.com/snowu"

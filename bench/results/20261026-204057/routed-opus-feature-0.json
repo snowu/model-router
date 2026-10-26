@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 43509,
+  "stop_reason": "end_turn",
+  "session_id": "b5958db2-e2f4-442b-a5a0-c30c217d3294",
+  "total_cost_usd": 0.21591482000000006,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 11676,
+    "cache_read_input_tokens": 96666,
+    "output_tokens": 3314,
+    "output_tokens_details": {
+      "thinking_tokens": 477
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 11676,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 461,
+        "cache_read_input_tokens": 19461,
+        "cache_creation_input_tokens": 1063,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1063
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 3314,
+      "cacheReadInputTokens": 96666,
+      "cacheCreationInputTokens": 11676,
+      "webSearchRequests": 0,
+      "costUSD": 0.17906919999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 477,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 400,
+      "cacheReadInputTokens": 10614,
+      "cacheCreationInputTokens": 12092,
+      "webSearchRequests": 0,
+      "costUSD": 0.0352994,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1303,
+      "cacheReadInputTokens": 14717,
+      "cacheCreationInputTokens": 5974,
+      "webSearchRequests": 0,
+      "costUSD": 0.00154622,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 210,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 2,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1,
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Issue #12 is implemented and the PR is open: https://github.com/acme/textstats/pull/7 (branch `feature/top-words-12`, commit `1f06f18`). The full test suite passes, 9 tests including 6 new ones for `top_words`.\n\n**Issue:** add `top_words(text, n)`. It returns up to `n` `(word, count)` tuples, most frequent first. Matching ignores case and punctuation, ties are broken alphabetically, and empty text returns `[]`. A reviewer asked for stdlib only.\n\n**What changed:**\n- **`textstats/__init__.py`:** added `top_words`. It lowercases the text, pulls out words with a regex that drops punctuation, counts them, sorts by highest count and then alphabetically, and returns the first `n`. It uses only `re` and `collections.Counter`.\n- **`tests/test_textstats.py`:** added tests for each acceptance criterion: order by frequency, the `n` limit, case, punctuation, tie-breaking and empty text.\n\nThe issue didn't cover two cases, so I chose how to handle them:\n- An apostrophe inside a word is kept, so `don't` counts as one word rather than `don` and `t`.\n- If `n` is 0 or negative, the function returns `[]`.\n\nThe commit message says `Closes #12`, so the issue will close when the PR is merged.",
+  "ttft_ms": 2898,
+  "type": "result",
+  "duration_ms": 44534,
+  "uuid": "e35c6044-cd82-4907-b5fd-8c2764e49ee5",
+  "ttft_stream_ms": 677,
+  "time_to_request_ms": 155,
+  "first_content_frame_ms": 678,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

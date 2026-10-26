@@ -1,10 +1,10 @@
 # Model routing (model-router plugin)
 
-Delegate these kinds of work to the matching subagent instead of doing them yourself, so each runs on the model suited to it:
+Subagents on cheaper models can take over chores, but each one starts with an empty context. Handing work over also costs you turns: writing the agent's instructions, then reading and checking its result. Delegate only when that overhead is smaller than doing the work yourself:
 
-- Opening or updating a pull request → `model-router:pr-opener` (Haiku)
-- Creating, pulling, reading or updating tickets/issues → `model-router:ticket-manager` (Sonnet)
-- Designing an implementation plan for a non-trivial change → `model-router:planner` (Opus)
-- Writing code, when you are not running on Opus yourself → `model-router:implementer` (Opus)
+- **Opening or updating a pull request** → `model-router:pr-opener` (Haiku). Worth it when this session's context is already large or the PR involves several steps (branching, committing, pushing). In a short session, do it yourself.
+- **Creating, pulling or updating tickets/issues** → `model-router:ticket-manager` (Sonnet). Same rule. A single quick `gh issue` call is cheaper done directly.
+- **Designing an implementation plan for a non-trivial change** → `model-router:planner` (Opus).
+- **Writing code** → only delegate to `model-router:implementer` (Opus) if you are not running on Opus yourself. If you are on Opus, implement directly.
 
-If you are already running on Opus, implement code directly rather than delegating to the implementer. Pass each subagent everything it needs in its prompt, since it doesn't see this conversation. An explicit request from the user to handle something differently overrides this routing.
+Pass each subagent everything it needs in its prompt, since it doesn't see this conversation. An explicit request from the user to handle something differently overrides this routing.

@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 48222,
+  "stop_reason": "end_turn",
+  "session_id": "e933fee5-30e8-44a4-a765-7f9c0818740d",
+  "total_cost_usd": 0.24473901,
+  "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 14113,
+    "cache_read_input_tokens": 164212,
+    "output_tokens": 3931,
+    "output_tokens_details": {
+      "thinking_tokens": 499
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14113,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 661,
+        "cache_read_input_tokens": 22658,
+        "cache_creation_input_tokens": 303,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 303
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 18,
+      "outputTokens": 3931,
+      "cacheReadInputTokens": 164212,
+      "cacheCreationInputTokens": 14113,
+      "webSearchRequests": 0,
+      "costUSD": 0.2244384,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 499,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 432,
+      "cacheReadInputTokens": 17766,
+      "cacheCreationInputTokens": 5273,
+      "webSearchRequests": 0,
+      "costUSD": 0.0192871,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1081,
+      "cacheReadInputTokens": 12141,
+      "cacheCreationInputTokens": 2808,
+      "webSearchRequests": 0,
+      "costUSD": 0.00101351,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 193,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 2,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1,
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I added `top_words(text, n)` for issue #12, the tests pass, and the branch is committed and pushed. The PR helper reported it opened PR #7 (https://github.com/acme/textstats/pull/7), but I couldn't confirm that PR exists. Please check it before relying on it.\n\n**PR status:** `gh pr view` and `gh pr list` both found no pull requests. The `origin` remote is a local bare repo (`/tmp/model-router-bench-y6bdufmm/origin.git`), not GitHub, so `gh` may not be linked to `acme/textstats` here. If the PR isn't there, `gh pr create --repo acme/textstats --head feature/top-words-12` from a properly configured checkout should open it.\n\n**What's in it:**\n- **Plan:** The change was small enough to skip a separate planning step: one function in `textstats/__init__.py` plus unit tests, using only the standard library as the reviewer asked on the issue.\n- **Code:** `top_words(text, n)` lowercases the text and pulls out the words, so punctuation is ignored. It counts them and sorts by highest count first, breaking ties alphabetically. It returns at most `n` `(word, count)` tuples, and `[]` for empty text or `n <= 0`.\n- **One choice beyond the issue:** apostrophes inside a word are kept, so `don't` counts as one word rather than splitting into `don` and `t`.\n- **Tests:** 7 new tests in `tests/test_textstats.py`, one for each requirement in the issue plus contractions. `python3 -m unittest discover -s tests` runs 10 tests, all passing.\n- **Commit:** `6a8a223` on the new branch `feature/top-words-12`, with \"Closes #12\" in the message.",
+  "ttft_ms": 2829,
+  "type": "result",
+  "duration_ms": 49688,
+  "uuid": "ca76476c-af1e-41c3-863e-6280f91b08e2",
+  "ttft_stream_ms": 1195,
+  "time_to_request_ms": 138,
+  "first_content_frame_ms": 1196,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

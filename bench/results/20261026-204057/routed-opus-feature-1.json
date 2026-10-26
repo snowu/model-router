@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 43365,
+  "stop_reason": "end_turn",
+  "session_id": "6fd7601f-909b-440a-80a9-85e145286abf",
+  "total_cost_usd": 0.19944566500000002,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 11580,
+    "cache_read_input_tokens": 96437,
+    "output_tokens": 3348,
+    "output_tokens_details": {
+      "thinking_tokens": 553
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 11580,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 474,
+        "cache_read_input_tokens": 19399,
+        "cache_creation_input_tokens": 1029,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1029
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 3348,
+      "cacheReadInputTokens": 96437,
+      "cacheCreationInputTokens": 11580,
+      "webSearchRequests": 0,
+      "costUSD": 0.17893539999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 553,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 447,
+      "cacheReadInputTokens": 17776,
+      "cacheCreationInputTokens": 5288,
+      "webSearchRequests": 0,
+      "costUSD": 0.019475600000000003,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1111,
+      "cacheReadInputTokens": 11994,
+      "cacheCreationInputTokens": 2869,
+      "webSearchRequests": 0,
+      "costUSD": 0.001034665,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 167,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 2,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1,
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I added `top_words(text, n)` for issue #12 and opened a PR: https://github.com/acme/textstats/pull/7. All 9 tests pass (`python -m unittest discover tests`).\n\n**The issue** asked for a function in `textstats/__init__.py` that returns the most frequent words as `(word, count)` tuples, at most `n` of them. It should ignore case and punctuation, break ties alphabetically, return `[]` for empty text, and have unit tests. A reviewer comment asked to use only the standard library.\n\n**How it works:**\n- It lowercases the text and splits it on whitespace.\n- It removes punctuation from the start and end of each word, so `hello,` and `hello!` both count as `hello`. Apostrophes inside a word stay, so `don't` is one word.\n- It counts the words with `collections.Counter`, sorts by count (highest first) and then alphabetically, and returns the first `n`.\n- If `n` is 0 or negative, it returns `[]`.\n\n**Tests:** I added 6 tests in `tests/test_textstats.py`, one for each requirement, plus checks for text that is only punctuation and for `n = 0`.\n\n**Git:** the commit is `7717e41` on the new branch `feature/top-words-12`, and its message includes \"Closes #12\". I fetched the issue and opened the PR through the ticket-manager and pr-opener agents. The change was small, so I planned and wrote it myself.",
+  "ttft_ms": 1974,
+  "type": "result",
+  "duration_ms": 44395,
+  "uuid": "c87404e5-684e-4751-a641-0bd95d544843",
+  "ttft_stream_ms": 742,
+  "time_to_request_ms": 134,
+  "first_content_frame_ms": 742,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

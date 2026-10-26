@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 35422,
+  "stop_reason": "end_turn",
+  "session_id": "69693db0-a555-4737-80ec-555979e1c136",
+  "total_cost_usd": 0.1579694,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 11049,
+    "cache_read_input_tokens": 74387,
+    "output_tokens": 2733,
+    "output_tokens_details": {
+      "thinking_tokens": 451
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 11049,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 538,
+        "cache_read_input_tokens": 19106,
+        "cache_creation_input_tokens": 791,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 791
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 2733,
+      "cacheReadInputTokens": 74387,
+      "cacheCreationInputTokens": 11049,
+      "webSearchRequests": 0,
+      "costUSD": 0.1579694,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 451,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I added `top_words(text, n)` for issue #12 and opened PR #7: https://github.com/acme/textstats/pull/7. It's committed on the new branch `issue-12-top-words` and pushed, and all 9 tests pass.\n\n**How it works** (`textstats/__init__.py`, stdlib only, as the reviewer asked):\n- It splits the text on whitespace and lowercases it.\n- It strips punctuation from the start and end of each word, so `hello,` and `hello!` both count as `hello`. Punctuation inside a word is kept, so `don't` stays `don't`.\n- Tokens that are only punctuation, like `--`, are dropped.\n- It counts the words, sorts them by count (highest first) with ties broken alphabetically, and returns at most `n` `(word, count)` tuples.\n- Empty text returns `[]`, and so does `n <= 0`.\n\n**Tests:** I added six tests to `tests/test_textstats.py`, covering each acceptance criterion: ordering, the `n` limit, case, punctuation, ties and empty text.\n\n**Decision for you:** the issue doesn't say what to do with punctuation inside a word. I kept it, so `don't` and `e-mail` stay whole. Removing it everywhere would also merge `hello,world` into one word. This choice is noted in the PR description.\n\n**Separate bug, not fixed:** the existing `word_count(\"\")` returns `1` instead of `0`, because it splits on `\" \"`. It was out of scope for this issue, so I left it alone.",
+  "ttft_ms": 4556,
+  "type": "result",
+  "duration_ms": 36213,
+  "uuid": "5a26d50b-5ef9-4377-8f96-b19e12c961f8",
+  "ttft_stream_ms": 4064,
+  "time_to_request_ms": 146,
+  "first_content_frame_ms": 4065,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

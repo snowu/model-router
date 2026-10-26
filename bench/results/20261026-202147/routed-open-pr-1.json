@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 28066,
+  "stop_reason": "end_turn",
+  "session_id": "afa51bd1-e7ce-41cd-a7e1-45ac389b753c",
+  "total_cost_usd": 0.05592301000000001,
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 885,
+    "cache_read_input_tokens": 17204,
+    "output_tokens": 177,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 885,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 177,
+        "cache_read_input_tokens": 17204,
+        "cache_creation_input_tokens": 885,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 885
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 1096,
+      "cacheReadInputTokens": 73992,
+      "cacheCreationInputTokens": 9125,
+      "webSearchRequests": 0,
+      "costUSD": 0.0548792,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 131,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1168,
+      "cacheReadInputTokens": 11821,
+      "cacheCreationInputTokens": 2728,
+      "webSearchRequests": 0,
+      "costUSD": 0.00104381,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 288,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mvpn9xme-6ebf591e"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The PR is open: https://github.com/acme/textstats/pull/7 (`add-char-count` into `main`).\n\nCheck the URL before relying on it. Your `origin` remote is a local path (`/tmp/model-router-bench-66w1a0g8/origin.git`), but `gh` returned a GitHub URL under `acme/textstats`. The PR may be in a different repository from the one you pushed to.\n\nI haven't run the tests. The PR's test plan has an unchecked `python -m pytest tests/test_char_count.py` item.",
+  "ttft_ms": 3558,
+  "type": "result",
+  "duration_ms": 3588,
+  "uuid": "64d4c528-0807-42b0-8089-003ceb8d7997",
+  "ttft_stream_ms": 2307,
+  "time_to_request_ms": 23,
+  "first_content_frame_ms": 2308,
+  "queued_turn_count": 0,
+  "result_index": 1
+}

@@ -3,7 +3,7 @@ name: planner
 description: Designs implementation plans for non-trivial changes. Use proactively before building a feature, refactor or fix that touches several files or involves design decisions.
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 model: opus
-effort: high
+effort: medium
 color: purple
 ---
 

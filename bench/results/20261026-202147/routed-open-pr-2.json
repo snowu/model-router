@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 18950,
+  "stop_reason": "end_turn",
+  "session_id": "4f6537ed-8d96-49ee-8653-a236ff98b4cb",
+  "total_cost_usd": 0.052974259999999995,
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 739,
+    "cache_read_input_tokens": 17048,
+    "output_tokens": 99,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 739,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 99,
+        "cache_read_input_tokens": 17048,
+        "cache_creation_input_tokens": 739,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 739
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 917,
+      "cacheReadInputTokens": 73590,
+      "cacheCreationInputTokens": 8823,
+      "webSearchRequests": 0,
+      "costUSD": 0.051841,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 78,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1173,
+      "cacheReadInputTokens": 17171,
+      "cacheCreationInputTokens": 2994,
+      "webSearchRequests": 0,
+      "costUSD": 0.00113326,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 256,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mvpnayt1-3d78e68c"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The PR is open: https://github.com/acme/textstats/pull/7\n\nIt merges `add-char-count` into `main` and adds `char_count(text, include_spaces=True)` with a test in `tests/test_char_count.py`. I haven't run the tests, and the PR description doesn't say they passed.",
+  "ttft_ms": 1429,
+  "type": "result",
+  "duration_ms": 1464,
+  "uuid": "aa8d5d2a-7517-48c4-9318-ea7e8816d656",
+  "ttft_stream_ms": 951,
+  "time_to_request_ms": 22,
+  "first_content_frame_ms": 951,
+  "queued_turn_count": 0,
+  "result_index": 1
+}

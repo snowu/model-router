@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+"""Fake `gh` for benchmark sandboxes.
+
+Serves a canned issue, records every call to $GH_LOG as JSON lines, and never
+touches GitHub.
+"""
+import json
+import os
+import sys
+
+REPO = "acme/textstats"
+
+ISSUES = {
+    "12": {
+        "number": 12,
+        "title": "Add top_words(text, n)",
+        "state": "OPEN",
+        "url": f"https://github.com/{REPO}/issues/12",
+        "author": {"login": "maintainer"},
+        "assignees": [],
+        "labels": [{"name": "enhancement"}],
+        "body": (
+            "We want a helper that returns the most frequent words in a text.\n\n"
+            "## Acceptance criteria\n"
+            "- `top_words(text, n)` lives in `textstats/__init__.py`\n"
+            "- Returns a list of `(word, count)` tuples, most frequent first, at most `n` items\n"
+            "- Case-insensitive: `Hello` and `hello` are the same word, reported lowercase\n"
+            "- Punctuation is ignored: `hello,` and `hello!` count as `hello`\n"
+            "- Ties are broken alphabetically\n"
+            "- Empty text returns `[]`\n"
+            "- Covered by unit tests in `tests/`\n"
+        ),
+        "comments": [
+            {
+                "author": {"login": "reviewer"},
+                "body": "Please keep it dependency-free, stdlib only.",
+            }
+        ],
+    }
+}
+
+
+def log(entry):
+    path = os.environ.get("GH_LOG")
+    if path:
+        with open(path, "a") as f:
+            f.write(json.dumps(entry) + "\n")
+
+
+def flag(args, *names):
+    for i, a in enumerate(args):
+        for n in names:
+            if a == n and i + 1 < len(args):
+                return args[i + 1]
+            if a.startswith(n + "="):
+                return a.split("=", 1)[1]
+    return None
+
+
+def body_from(args):
+    body = flag(args, "--body", "-b")
+    body_file = flag(args, "--body-file", "-F")
+    if body_file == "-":
+        body = sys.stdin.read()
+    elif body_file:
+        try:
+            with open(body_file) as f:
+                body = f.read()
+        except OSError:
+            pass
+    return body
+
+
+def issue_text(issue):
+    lines = [
+        f"title:\t{issue['title']}",
+        f"state:\t{issue['state']}",
+        f"author:\t{issue['author']['login']}",
+        f"labels:\t{', '.join(l['name'] for l in issue['labels'])}",
+        f"number:\t{issue['number']}",
+        f"url:\t{issue['url']}",
+        "--",
+        issue["body"],
+    ]
+    for c in issue["comments"]:
+        lines += ["--", f"author:\t{c['author']['login']}", c["body"]]
+    return "\n".join(lines)
+
+
+def main():
+    args = sys.argv[1:]
+    cmd = args[:2]
+    entry = {"argv": args}
+
+    if cmd == ["auth", "status"]:
+        print(f"github.com\n  ✓ Logged in to github.com account bench-user")
+    elif cmd == ["repo", "view"]:
+        if "--json" in args:
+            print(json.dumps({"nameWithOwner": REPO, "defaultBranchRef": {"name": "main"}, "url": f"https://github.com/{REPO}"}))
+        else:
+            print(f"{REPO}\nSmall text statistics helpers.")
+    elif cmd == ["issue", "view"]:
+        num = args[2].rstrip("/").split("/")[-1].lstrip("#") if len(args) > 2 else ""
+        issue = ISSUES.get(num)
+        if not issue:
+            print(f"GraphQL: Could not resolve to an issue with the number of {num}.", file=sys.stderr)
+            log(entry)
+            return 1
+        print(json.dumps(issue) if "--json" in args else issue_text(issue))
+    elif cmd == ["issue", "list"]:
+        if "--json" in args:
+            print(json.dumps([{k: i[k] for k in ("number", "title", "state", "labels", "url")} for i in ISSUES.values()]))
+        else:
+            for i in ISSUES.values():
+                print(f"{i['number']}\t{i['state']}\t{i['title']}\tenhancement")
+    elif cmd == ["issue", "create"]:
+        entry.update(title=flag(args, "--title", "-t"), body=body_from(args))
+        print(f"https://github.com/{REPO}/issues/13")
+    elif cmd == ["pr", "create"]:
+        entry.update(title=flag(args, "--title", "-t"), body=body_from(args), base=flag(args, "--base", "-B"), head=flag(args, "--head", "-H"))
+        print(f"https://github.com/{REPO}/pull/7")
+    elif cmd in (["pr", "view"], ["pr", "status"]):
+        print("no pull requests found for branch", file=sys.stderr)
+        log(entry)
+        return 1
+    elif cmd == ["pr", "list"]:
+        print("[]" if "--json" in args else "")
+    log(entry)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

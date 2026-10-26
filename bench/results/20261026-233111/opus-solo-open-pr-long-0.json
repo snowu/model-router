@@ -1,0 +1,115 @@
+{
+  "duration_api_ms": 90807,
+  "stop_reason": "end_turn",
+  "session_id": "de5d335f-4916-451d-9816-1bfc29a6182a",
+  "total_cost_usd": 2.0882374,
+  "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 5219,
+    "cache_read_input_tokens": 1592612,
+    "output_tokens": 2102,
+    "output_tokens_details": {
+      "thinking_tokens": 306
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5219,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 623,
+        "cache_read_input_tokens": 200470,
+        "cache_creation_input_tokens": 372,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 372
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 28,
+      "outputTokens": 8109,
+      "cacheReadInputTokens": 1950007,
+      "cacheCreationInputTokens": 191993,
+      "webSearchRequests": 0,
+      "costUSD": 2.0882374,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1318,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I committed your changes on a new branch and pushed them, but I can't confirm the PR exists.\n\n**Done:**\n- **Branch:** `add-char-count`\n- **Commit:** `70b721c` \"Add char_count to textstats\". It contains your two changes: `char_count()` in `textstats/__init__.py` and the new `tests/test_char_count.py`. All 4 tests passed before committing.\n- **Push:** went to `origin` with upstream tracking set. Note that `origin` here is a local repo (`/tmp/model-router-bench-mzudjxg7/origin.git`), not GitHub.\n\n**The PR:**\n- `gh pr create` printed https://github.com/acme/textstats/pull/7, but `gh pr view`, `gh pr list --head add-char-count` and opening that URL directly all found nothing. Since your branch was only pushed to the local repo, GitHub may not have it at all.\n- I made a mistake: I ran `gh pr create` with the placeholder description \"test\" as a probe, not expecting it to really open a PR. When it printed a URL, I ran `gh pr edit 7` to replace that with a proper summary, test note and the Claude Code line. That command didn't report an error, but I couldn't confirm the edit either.\n\n**Next steps:** check whether https://github.com/acme/textstats/pull/7 exists. If it does and still says \"test\", it needs the description fixed or should be closed. If it doesn't, this repo needs a GitHub remote before a real PR can be opened, and I can push the branch there and open it properly.",
+  "ttft_ms": 1800,
+  "type": "result",
+  "duration_ms": 34648,
+  "uuid": "d3ac54ef-5464-42c1-9b1a-2e40d0745b41",
+  "ttft_stream_ms": 1383,
+  "time_to_request_ms": 46,
+  "first_content_frame_ms": 1383,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {
+    "claude-opus-5-5": {
+      "inputTokens": 16,
+      "outputTokens": 2102,
+      "cacheReadInputTokens": 1592612,
+      "cacheCreationInputTokens": 5219,
+      "webSearchRequests": 0,
+      "costUSD": 0.4023784,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 306,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "duration_api_ms": 115221,
+  "stop_reason": "end_turn",
+  "session_id": "1cb43abc-4a47-4668-b6db-061edd047646",
+  "total_cost_usd": 2.0462213699999996,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 8649,
+    "cache_read_input_tokens": 1001988,
+    "output_tokens": 2087,
+    "output_tokens_details": {
+      "thinking_tokens": 385
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8649,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 592,
+        "cache_read_input_tokens": 203316,
+        "cache_creation_input_tokens": 609,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 609
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 22,
+      "outputTokens": 10579,
+      "cacheReadInputTokens": 1358679,
+      "cacheCreationInputTokens": 195076,
+      "webSearchRequests": 0,
+      "costUSD": 2.0440118,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2767,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2119,
+      "cacheReadInputTokens": 18727,
+      "cacheCreationInputTokens": 7696,
+      "webSearchRequests": 0,
+      "costUSD": 0.00220957,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 634,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 1,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Your changes are committed and pushed to a new branch, but I couldn't confirm a PR was opened.\n\n**What I checked myself:**\n- **Branch:** `add-char-count` was created from `main`.\n- **Commit:** `4e534ad` \"Add char_count to textstats\" contains `textstats/__init__.py` and `tests/test_char_count.py`. The working tree is clean, and the tests passed 4/4 before committing.\n- **Push:** `origin` now has `refs/heads/add-char-count` at `4e534ad`.\n\n**Problems:**\n1. **PR:** I handed this to a PR agent, and it reported opening `https://github.com/acme/textstats/pull/7`. When I checked, `gh pr view` returned \"no pull requests found for branch\". Also, `origin` is a local bare repo (`/tmp/model-router-bench-fhy1msfc/origin.git`) with no GitHub host behind it, so a GitHub PR can't exist for it. Treat that link as not real.\n2. **Commit trailer:** the commit ends with `Co-Authored-By: Claude Haiku 5.5` instead of the `Claude Opus 5.5` line it should have. Fixing it means amending the commit and force-pushing `add-char-count`. That only affects the branch I just created, but I haven't done it without your OK.\n\n**Next steps:**\n- If this repo has a real GitHub remote, give me its URL (or add it as a remote) and I'll open the PR there. Otherwise the branch is pushed and ready to merge or review locally.\n- Should I amend the trailer and force-push the branch?",
+  "ttft_ms": 3700,
+  "type": "result",
+  "duration_ms": 43858,
+  "uuid": "4bb8a40a-a211-4a18-b150-82ae57b0f758",
+  "ttft_stream_ms": 1242,
+  "time_to_request_ms": 50,
+  "first_content_frame_ms": 1243,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {
+    "claude-opus-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 2087,
+      "cacheReadInputTokens": 1001988,
+      "cacheCreationInputTokens": 8649,
+      "webSearchRequests": 0,
+      "costUSD": 0.3113696,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 385,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2119,
+      "cacheReadInputTokens": 18727,
+      "cacheCreationInputTokens": 7696,
+      "webSearchRequests": 0,
+      "costUSD": 0.00220957,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 634,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

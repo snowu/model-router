@@ -1,0 +1,115 @@
+{
+  "duration_api_ms": 43376,
+  "stop_reason": "end_turn",
+  "session_id": "53c2717e-a68a-4a31-8176-556e818aa4c1",
+  "total_cost_usd": 0.17634790000000003,
+  "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 9908,
+    "cache_read_input_tokens": 127461,
+    "output_tokens": 2536,
+    "output_tokens_details": {
+      "thinking_tokens": 267
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 9908,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 490,
+        "cache_read_input_tokens": 18531,
+        "cache_creation_input_tokens": 225,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 225
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 16,
+      "outputTokens": 2536,
+      "cacheReadInputTokens": 127461,
+      "cacheCreationInputTokens": 9908,
+      "webSearchRequests": 0,
+      "costUSD": 0.15554020000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 267,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 550,
+      "cacheReadInputTokens": 18172,
+      "cacheCreationInputTokens": 5393,
+      "webSearchRequests": 0,
+      "costUSD": 0.0208077,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 1,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I can't confirm the issue was created. It may not exist.\n\n- **What happened:** I gave the issue to a subagent and it reported https://github.com/acme/textstats/issues/13. I couldn't find that issue, so I ran `gh issue create` myself with the same content. `gh` returned the same URL with no error.\n- **What I checked:** Both times, `gh issue view 13` failed with \"Could not resolve to an issue with the number of 13.\" `gh issue list` still shows only #12 (\"Add top_words(text, n)\").\n- **Possible cause:** The repo's `origin` remote is a local path (`/tmp/model-router-bench-axwp8oih/origin.git`), yet `gh` maps this checkout to `acme/textstats`. The `gh` setup here may be pointing at something other than the repo you expect.\n- **Duplicates:** If the issue really was created, there could be two copies, since the subagent and I both submitted it.\n\nThe issue reports that `word_count(\"\")` returns 1 instead of 0. That's because `\"\".split(\" \")` gives `['']`. It suggests `len(text.split())` as the fix, matching `average_word_length`, and notes there's no test for the empty-string case. I didn't change any code.\n\nCan you check https://github.com/acme/textstats/issues and confirm that `acme/textstats` is the right repo? If the issue isn't there, I can try again once `gh` points at the right place.",
+  "ttft_ms": 3774,
+  "type": "result",
+  "duration_ms": 44386,
+  "uuid": "f5d73788-9036-4d7f-aec5-e02d72e30442",
+  "ttft_stream_ms": 1882,
+  "time_to_request_ms": 124,
+  "first_content_frame_ms": 1883,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

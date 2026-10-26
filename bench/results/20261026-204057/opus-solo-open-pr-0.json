@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 10420,
+  "stop_reason": "end_turn",
+  "session_id": "83bd6eb8-f3d0-4aaf-9342-0d600d5d25b2",
+  "total_cost_usd": 0.0932364,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 7439,
+    "cache_read_input_tokens": 70722,
+    "output_tokens": 977,
+    "output_tokens_details": {
+      "thinking_tokens": 34
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 7439,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 201,
+        "cache_read_input_tokens": 16057,
+        "cache_creation_input_tokens": 230,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 230
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 977,
+      "cacheReadInputTokens": 70722,
+      "cacheCreationInputTokens": 7439,
+      "webSearchRequests": 0,
+      "costUSD": 0.0932364,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 34,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I committed your changes on a new branch, `add-char-count`, pushed it to `origin`, and opened a PR: https://github.com/acme/textstats/pull/7\n\n- **Commit:** \"Add char_count function\". It includes your change to `textstats/__init__.py` and the new `tests/test_char_count.py`.\n- **Tests:** The new test passes when run directly with `python -m unittest tests/test_char_count.py`. Running plain `python -m unittest` from the repo root finds no tests at all, so check that before relying on it in CI. A likely cause is that `tests/` has no `__init__.py`.",
+  "ttft_ms": 1720,
+  "type": "result",
+  "duration_ms": 11188,
+  "uuid": "7f986b92-9e65-412d-a07b-cf524bb808e5",
+  "ttft_stream_ms": 761,
+  "time_to_request_ms": 112,
+  "first_content_frame_ms": 762,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

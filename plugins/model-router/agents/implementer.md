@@ -2,6 +2,7 @@
 name: implementer
 description: Writes and changes code, from a plan or a clear spec. Use proactively for implementation work when the main session is running on a cheaper model than Opus.
 model: opus
+effort: medium
 color: orange
 ---
 

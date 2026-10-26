@@ -1,0 +1,131 @@
+{
+  "duration_api_ms": 69880,
+  "stop_reason": "end_turn",
+  "session_id": "b32ebb28-be83-4fd5-81c1-cbceae95c986",
+  "total_cost_usd": 0.26843359000000006,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 10444,
+    "cache_read_input_tokens": 77104,
+    "output_tokens": 2273,
+    "output_tokens_details": {
+      "thinking_tokens": 156
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 10444,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 592,
+        "cache_read_input_tokens": 18471,
+        "cache_creation_input_tokens": 937,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 937
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 14,
+      "outputTokens": 2723,
+      "cacheReadInputTokens": 87839,
+      "cacheCreationInputTokens": 22877,
+      "webSearchRequests": 0,
+      "costUSD": 0.10890040000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 156,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-opus-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 3142,
+      "cacheReadInputTokens": 68627,
+      "cacheCreationInputTokens": 16282,
+      "webSearchRequests": 0,
+      "costUSD": 0.15802339999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 404,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1263,
+      "cacheReadInputTokens": 14324,
+      "cacheCreationInputTokens": 5874,
+      "webSearchRequests": 0,
+      "costUSD": 0.00150979,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 158,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1,
+      "model-router:implementer": 1,
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I implemented issue #12 and opened a PR: https://github.com/acme/textstats/pull/7. I ran the full suite myself on the branch and all 10 tests pass: the 3 existing ones and 7 new ones.\n\n- **Change:** `top_words(text, n)` is in `textstats/__init__.py`. It returns `(word, count)` tuples, most frequent first, with at most `n` items. Matching is case-insensitive and the words come back lowercase. Ties are broken alphabetically, and empty text returns `[]`. It uses only `re` and `collections.Counter`, as the reviewer asked.\n- **Tests:** The 7 new unittest tests are in `tests/test_textstats.py`. They cover frequency order, case, punctuation, ties, empty or punctuation-only text, `n` larger than the number of distinct words, and `n=0`.\n- **Branch:** The commit is on `feature/top-words-issue-12`, pushed, and the PR body says \"Closes #12\".\n- **Planning:** I skipped a separate planning step because the change was small and fully specified by the acceptance criteria.\n\nThe issue doesn't cover a few cases, so I'm flagging how they behave:\n- **Apostrophes:** An apostrophe between letters stays in the word, so `don't` counts as one word.\n- **Underscores:** Underscores count as punctuation.\n- **Non-English letters:** They count as word characters.\n- **`n <= 0`:** Returns `[]`.\n\nThe implementer's commit ended with an Opus co-author line. I amended it to the Sonnet 5.5 line before pushing.\n\nPlain `python -m unittest discover` finds 0 tests because `tests/` has no `__init__.py`. Use the README command, `python3 -m unittest discover -s tests`.",
+  "ttft_ms": 6713,
+  "type": "result",
+  "duration_ms": 71459,
+  "uuid": "a0fb2d04-ce25-4f91-b2b1-d04c4d64d513",
+  "ttft_stream_ms": 6485,
+  "time_to_request_ms": 169,
+  "first_content_frame_ms": 6485,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

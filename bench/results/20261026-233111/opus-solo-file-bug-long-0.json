@@ -1,0 +1,115 @@
+{
+  "duration_api_ms": 76403,
+  "stop_reason": "end_turn",
+  "session_id": "78490f1b-39f9-4b34-8a25-bd9e9171b5c1",
+  "total_cost_usd": 1.9255266000000002,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 5035,
+    "cache_read_input_tokens": 794684,
+    "output_tokens": 1204,
+    "output_tokens_details": {
+      "thinking_tokens": 57
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5035,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 292,
+        "cache_read_input_tokens": 200130,
+        "cache_creation_input_tokens": 592,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 592
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 20,
+      "outputTokens": 8003,
+      "cacheReadInputTokens": 1152013,
+      "cacheCreationInputTokens": 191873,
+      "webSearchRequests": 0,
+      "costUSD": 1.9255266000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 447,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I opened the issue: https://github.com/acme/textstats/issues/13. I didn't change any code.\n\nI ran `word_count` first to confirm the bug. It returns `1` for `\"\"` and `4` for `\"   \"` (three spaces).\n\nThe cause is in `textstats/__init__.py:6`, which uses `len(text.split(\" \"))`. Splitting on an explicit `\" \"` always returns at least one item, so an empty string gives `[\"\"]` and a count of 1. Each extra space also adds an empty item, which is why whitespace-only text is miscounted.\n\nThe issue includes:\n- the steps to reproduce\n- the cause\n- the expected result: 0 for empty or whitespace-only text\n- a suggested fix: `len(text.split())`, which `average_word_length` in the same file already uses\n- a suggestion to add a regression test, since the only existing test checks `\"the quick brown fox\"`",
+  "ttft_ms": 1653,
+  "type": "result",
+  "duration_ms": 19625,
+  "uuid": "c05cb93b-458c-408b-b0a2-9240c8a59b29",
+  "ttft_stream_ms": 1355,
+  "time_to_request_ms": 44,
+  "first_content_frame_ms": 1355,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {
+    "claude-opus-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1204,
+      "cacheReadInputTokens": 794684,
+      "cacheCreationInputTokens": 5035,
+      "webSearchRequests": 0,
+      "costUSD": 0.2233288,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 57,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

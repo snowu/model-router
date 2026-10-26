@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 24721,
+  "stop_reason": "end_turn",
+  "session_id": "5b6666bd-cccf-40be-99ad-9fe60c20e937",
+  "total_cost_usd": 0.1441858,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 9769,
+    "cache_read_input_tokens": 72769,
+    "output_tokens": 2572,
+    "output_tokens_details": {
+      "thinking_tokens": 304
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 9769,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 443,
+        "cache_read_input_tokens": 17898,
+        "cache_creation_input_tokens": 719,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 719
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 2572,
+      "cacheReadInputTokens": 72769,
+      "cacheCreationInputTokens": 9769,
+      "webSearchRequests": 0,
+      "costUSD": 0.1441858,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 304,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I added `top_words(text, n)` for issue #12 and opened a PR: https://github.com/acme/textstats/pull/7. The full test suite passes (10 tests).\n\n- **Code:** the function is in `textstats/__init__.py` and only uses the standard library, as the reviewer asked. It lowercases the text, pulls out the words while ignoring punctuation, counts them, and sorts by count (highest first) and then alphabetically. It returns at most `n` items, and empty text gives `[]`.\n- **Choices the issue didn't cover:**\n  - Apostrophes inside a word are kept, so `don't` counts as one word instead of `don` + `t`.\n  - If `n` is 0 or negative, the function returns `[]`.\n- **Tests:** 7 new tests in `tests/test_textstats.py`. They cover the ordering, the `n` limit, case, punctuation, contractions, alphabetical tie-breaking, and input that is empty or only punctuation.\n- **Git:** the change is one commit on the new branch `issue-12-top-words`, pushed to origin. The commit message says \"Closes #12\".\n\nThe existing `word_count` has a bug: it splits on single spaces, so double spaces or newlines give the wrong count. I left it alone because it's outside this issue.",
+  "ttft_ms": 1934,
+  "type": "result",
+  "duration_ms": 25464,
+  "uuid": "1cc1e26a-fb51-4489-b7fa-616ebc30c94d",
+  "ttft_stream_ms": 997,
+  "time_to_request_ms": 103,
+  "first_content_frame_ms": 997,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

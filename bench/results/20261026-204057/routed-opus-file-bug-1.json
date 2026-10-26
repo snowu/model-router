@@ -1,0 +1,115 @@
+{
+  "duration_api_ms": 27580,
+  "stop_reason": "end_turn",
+  "session_id": "ab6fe8b3-e52a-4615-bbcc-d067e2f223f3",
+  "total_cost_usd": 0.1413637,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 8863,
+    "cache_read_input_tokens": 73586,
+    "output_tokens": 1713,
+    "output_tokens_details": {
+      "thinking_tokens": 176
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8863,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 443,
+        "cache_read_input_tokens": 17344,
+        "cache_creation_input_tokens": 367,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 367
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 1713,
+      "cacheReadInputTokens": 73586,
+      "cacheCreationInputTokens": 8863,
+      "webSearchRequests": 0,
+      "costUSD": 0.1199212,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 176,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 586,
+      "cacheReadInputTokens": 18245,
+      "cacheCreationInputTokens": 5500,
+      "webSearchRequests": 0,
+      "costUSD": 0.0214425,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 1,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:ticket-manager": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I opened issue #13: https://github.com/acme/textstats/issues/13. I didn't change any code.\n\n**Check the repo:** the issue went to `acme/textstats`. Your git `origin` is a local bare repo (`/tmp/model-router-bench-ltn08e2i/origin.git`), not a GitHub URL, and `GH_REPO` isn't set. Even so, `gh repo view` in this directory reports `acme/textstats`. I couldn't find where that setting comes from, so please confirm it's the right repo. If it isn't, I can close the issue and open it in the right place.\n\n**What the issue says:**\n- **Title:** `word_count(\"\") returns 1 instead of 0`\n- **Cause:** `word_count` in `textstats/__init__.py:6` does `len(text.split(\" \"))`, and `\"\".split(\" \")` gives `[\"\"]`, which has length 1.\n- **Related problems:** splitting on a single space also gets other inputs wrong. For example, `word_count(\"a  b\")` with two spaces returns 3, and tabs and newlines aren't treated as word breaks.\n- **Suggested fix:** use `text.split()` with no argument, and add a test for the empty string to `tests/test_textstats.py`.",
+  "ttft_ms": 2497,
+  "type": "result",
+  "duration_ms": 28265,
+  "uuid": "60fa4496-f8a0-44ad-b0b3-9342de1e4c08",
+  "ttft_stream_ms": 2159,
+  "time_to_request_ms": 165,
+  "first_content_frame_ms": 2160,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

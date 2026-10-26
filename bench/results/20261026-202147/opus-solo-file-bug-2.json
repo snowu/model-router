@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 21326,
+  "stop_reason": "end_turn",
+  "session_id": "9a48587d-f9ad-44b2-9668-1b00823fe468",
+  "total_cost_usd": 0.09141400000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 7368,
+    "cache_read_input_tokens": 54390,
+    "output_tokens": 1078,
+    "output_tokens_details": {
+      "thinking_tokens": 102
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 7368,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 221,
+        "cache_read_input_tokens": 15612,
+        "cache_creation_input_tokens": 604,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 604
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1078,
+      "cacheReadInputTokens": 54390,
+      "cacheCreationInputTokens": 7368,
+      "webSearchRequests": 0,
+      "costUSD": 0.09141400000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 102,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I opened the issue: https://github.com/acme/textstats/issues/13\n\nI ran it first and confirmed the bug: `word_count(\"\")` returns `1`. The cause is in `textstats/__init__.py:6`: the function uses `text.split(\" \")`, and `\"\".split(\" \")` returns `['']`, a list with one empty string, so it counts 1.\n\nThe issue also notes that the same code miscounts repeated spaces, spaces at the start or end, tabs and newlines. For example, `word_count(\"a  b\")` returns 3. It suggests switching to `text.split()`, which `average_word_length` already uses, and adding a test for the empty string. I didn't change any code.",
+  "ttft_ms": 3481,
+  "type": "result",
+  "duration_ms": 21931,
+  "uuid": "ee20e729-e6b8-4849-8b1c-24c6e317278c",
+  "ttft_stream_ms": 2451,
+  "time_to_request_ms": 112,
+  "first_content_frame_ms": 2452,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

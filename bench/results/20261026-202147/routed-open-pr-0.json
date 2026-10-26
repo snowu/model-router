@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 30094,
+  "stop_reason": "end_turn",
+  "session_id": "446a158b-ddb7-487f-ba40-3cbf3f699355",
+  "total_cost_usd": 0.04777551,
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 928,
+    "cache_read_input_tokens": 16336,
+    "output_tokens": 221,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 928,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 221,
+        "cache_read_input_tokens": 16336,
+        "cache_creation_input_tokens": 928,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 928
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 849,
+      "cacheReadInputTokens": 40663,
+      "cacheCreationInputTokens": 8300,
+      "webSearchRequests": 0,
+      "costUSD": 0.0457683,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 87,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 2160,
+      "cacheReadInputTokens": 32601,
+      "cacheCreationInputTokens": 4800,
+      "webSearchRequests": 0,
+      "costUSD": 0.0020072099999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 477,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mvpn8liy-9aecac76"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "model-router:pr-opener": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The PR is open: https://github.com/acme/textstats/pull/7\n\n- **Branch:** `add-char-count`, pushed to origin with upstream tracking.\n- **Commit:** `8968963`, \"Add char_count helper to textstats\". It adds `char_count(text, include_spaces=True)` to `textstats/__init__.py`, with tests in `tests/test_char_count.py`.\n- **Tests:** The test run passes (1 test, OK) when the repo root is on `sys.path`. `python3 -m unittest tests.test_char_count` failed at first because `tests/` has no `__init__.py`. The PR body reports the passing run. No code was changed.",
+  "ttft_ms": 8110,
+  "type": "result",
+  "duration_ms": 8133,
+  "uuid": "15345439-fb06-4180-916e-886f35143661",
+  "ttft_stream_ms": 6687,
+  "time_to_request_ms": 26,
+  "first_content_frame_ms": 6687,
+  "queued_turn_count": 0,
+  "result_index": 1
+}
